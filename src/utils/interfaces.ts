@@ -16,4 +16,5 @@ export interface Person {
     password: string,
     email: string,
     phone: number | string,
+    checkbox: boolean | string,
   }
