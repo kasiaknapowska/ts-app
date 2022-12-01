@@ -11,3 +11,9 @@ export interface Person {
     eyes: string,
     img: string
   }
+  export interface FormData {
+    login: string,
+    password: string,
+    email: string,
+    phone: number | string,
+  }

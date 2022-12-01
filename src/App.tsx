@@ -9,44 +9,7 @@ const App: FC = () => {
   const [person, setPerson] = useState<Person | null>(null);
   const [counter, setCounter] = useState<number>(1);
   const [showForm, setShowForm] = useState<boolean>(false);
-  // const fetchData = async (n: number) => {
-  //   const response = await fetch(`https://swapi.dev/api/people/${n}/`);
-  //   const data = await response.json();
 
-  //   const person: Person = {
-  //     name: data.name,
-  //     eye_color: data.eye_color,
-  //     birth_year: data.birth_year,
-  //   };
-  //   setPeople([person]);
-  //   setPerson((prevState) => {
-  //     return {
-  //       ...prevState,
-  //       ...person,
-  //     };
-  //   });
-
-  //   if (!response.ok) {
-  //     const msg = `An error occurred: ${response.status}`;
-  //     throw new Error(msg);
-  //   }
-  // };
-  // const fetchImg = async () => {
-  //   const response = await fetch("https://picsum.photos/534/383");
-  //   const url: string = response.url;
-
-  //   setPerson((prevState) => {
-  //     return {
-  //       ...prevState,
-  //       img: url,
-  //     };
-  //   });
-
-  //   if (!response.ok) {
-  //     const msg = `An error occurred: ${response.status}`;
-  //     throw new Error(msg);
-  //   }
-  // };
 
   const fetchData = async (n: number) => {
     const response = await fetch(`https://swapi.dev/api/people/${n}/`);
