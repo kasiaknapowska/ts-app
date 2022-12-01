@@ -1,5 +1,6 @@
 import React, { FC, useEffect, useState } from "react";
 import "./App.css";
+import Form from "./components/Form";
 import { PersonCard } from "./components/PersonCard";
 import { Person } from "./utils/interfaces";
 
@@ -7,6 +8,7 @@ const App: FC = () => {
   const [people, setPeople] = useState<Person[]>([]);
   const [person, setPerson] = useState<Person | null>(null);
   const [counter, setCounter] = useState<number>(1);
+  const [showForm, setShowForm] = useState<boolean>(false);
   // const fetchData = async (n: number) => {
   //   const response = await fetch(`https://swapi.dev/api/people/${n}/`);
   //   const data = await response.json();
@@ -81,25 +83,41 @@ const App: FC = () => {
   }, [person, people]);
 
   return (
+    <>
       <section className="container">
-        <div className="header">
-          <p>Kasia Knapowska</p>
-          <button className="btn btn_secondary">formularz rejestracyjny</button>
-        </div>
-        {person ? (
-          <PersonCard
-            name={person.name}
-            age={person.birth_year}
-            eyes={person.eye_color}
-            img={person.img}
-          />
+        {!showForm ? (
+          <>
+            <div className="header">
+              <p>Kasia Knapowska</p>
+              <button
+                onClick={() => setShowForm(true)}
+                className="btn btn_secondary"
+              >
+                formularz rejestracyjny
+              </button>
+            </div>
+            {person ? (
+              <PersonCard
+                name={person.name}
+                age={person.birth_year}
+                eyes={person.eye_color}
+                img={person.img}
+              />
+            ) : (
+              <h1>Loading...</h1>
+            )}
+            <button
+              className="btn btn_primary"
+              onClick={() => setCounter((prevState) => prevState + 1)}
+            >
+              next profiles
+            </button>
+          </>
         ) : (
-          <h1>Loading...</h1>
+          <Form/>
         )}
-        <button className="btn btn_primary" onClick={() => setCounter((prevState) => prevState + 1)}>
-          next profiles
-        </button>
       </section>
+    </>
   );
 };
 
