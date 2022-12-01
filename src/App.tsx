@@ -1,5 +1,6 @@
 import React, { FC, useEffect, useState } from "react";
 import "./App.css";
+import { PersonCard } from "./components/PersonCard";
 import { Person } from "./utils/interfaces";
 
 const App: FC = () => {
@@ -80,24 +81,25 @@ const App: FC = () => {
   }, [person, people]);
 
   return (
-    <div className="App">
       <section className="container">
-        <p>Kasia Knapowska</p>
-        <button>Formularz rejestracyjny</button>
+        <div className="header">
+          <p>Kasia Knapowska</p>
+          <button className="btn btn_secondary">formularz rejestracyjny</button>
+        </div>
         {person ? (
-          <div>
-            <img src={person.img} />
-            <h1>{person.name}</h1>
-            <p>age: {person.birth_year}</p>
-            <p>eye color: {person.eye_color}</p>
-          </div>
+          <PersonCard
+            name={person.name}
+            age={person.birth_year}
+            eyes={person.eye_color}
+            img={person.img}
+          />
         ) : (
           <h1>Loading...</h1>
         )}
-         <button onClick={() => setCounter(prevState => prevState + 1)}>Next profiles</button>
+        <button className="btn btn_primary" onClick={() => setCounter((prevState) => prevState + 1)}>
+          next profiles
+        </button>
       </section>
-     
-    </div>
   );
 };
 
