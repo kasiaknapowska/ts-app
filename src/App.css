@@ -25,6 +25,29 @@ p {
   width: 100%;
   text-align: center;
 }
+.btn {
+  padding: 10px 30px;
+  color: white;
+  font-size: 20px;
+  font-weight: 400;
+  font-style: italic;
+  border: none;
+  border-radius: 20px;
+  box-shadow: 10px 4px 4px rgba(0, 0, 0, 0.75);
+  text-transform: lowercase;
+  max-width: 170px;
+  text-align: left;
+  cursor: pointer;
+}
+.btn_secondary {
+  background-color: #40483a;
+}
+.btn_primary {
+  background-color: #35660e;
+}
+
+/* PERSON CARD */
+
 .person_card {
   background-color: rgba(54, 44, 44, 0.3);
   border-radius: 500px 60px 300px 100px;
@@ -77,44 +100,63 @@ p {
   text-align: left;
   margin: 10px 0 30px 0;
 }
-.btn {
-  padding: 10px 30px;
-  color: white;
-  font-size: 20px;
-  font-weight: 400;
-  font-style: italic;
-  border: none;
-  border-radius: 20px;
-  box-shadow: 10px 4px 4px rgba(0, 0, 0, 0.75);
-  text-transform: lowercase;
-  max-width: 170px;
-  text-align: left;
-  cursor: pointer;
-}
-.btn_secondary {
-  background-color: #40483a;
-}
-.btn_primary {
-  background-color: #35660e;
-}
 
 /* FORM */
-.form_container {
-  padding: 50px 0;
-  width: 100%;
-}
+
 label {
   font-family: "Inter", sans-serif;
+  font-weight: 700;
 }
 input {
   border: none;
   outline: none;
   border-bottom: 2px solid black;
-  display: block;
   width: 100%;
   height: 40px;
+  margin-bottom: 20px;
 }
 
+.form_container {
+  padding: 50px 0 0 0;
+  width: 100%;
+}
+
+.form_container h1 {
+  font-family: "Inter", sans-serif;
+  font-weight: 800;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-size: 20px;
+  text-align: right;
+  margin-bottom: 80px;
+  position: relative;
+}
+
+.form_container h1::after {
+  content: "";
+  display: block;
+  width: 166px;
+  height: 10px;
+  background-color: #071594;
+  position: absolute;
+  right: 0;
+  bottom: -30px;
+}
+.checkbox_label {
+  display: flex;
+  align-items: center;
+}
+.checkbox {
+  width: 30px;
+  display: inline;
+  border: 1px solid black;
+}
+.btn_submit {
+  background-color: #071594;
+  min-width: 200px;
+  text-align: center;
+  margin-left: calc((100% - 200px) / 2);
+}
 /* BREAKPOINTS */
 
 @media screen and (min-width: 400px) {
@@ -132,10 +174,7 @@ input {
     justify-content: space-between;
   }
   .form_container {
-   width: 80%;
-  }
-  .form_container h1 {
-    text-align: right;
+    width: 80%;
   }
 }
 @media screen and (min-width: 600px) {
@@ -171,5 +210,3 @@ input {
     padding-left: 65px;
   }
 }
-
-
