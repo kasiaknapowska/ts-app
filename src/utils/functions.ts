@@ -11,7 +11,7 @@
 //         .catch((err) => console.log(err));
 // }
 
-import { Person } from "./types";
+import { Person } from "./interfaces";
 
 export async function request<TResponse>(
   url: string,

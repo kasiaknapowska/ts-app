@@ -2,10 +2,10 @@ import React, { FC, useEffect, useState } from "react";
 import "./App.css";
 import Form from "./components/Form";
 import { PersonCard } from "./components/PersonCard";
-import { Person } from "./utils/interfaces";
+import { Person, PersonToPost } from "./utils/interfaces";
 
 const App: FC = () => {
-  const [people, setPeople] = useState<Person[]>([]);
+  const [peopleToPost, setPeopleToPost] = useState<PersonToPost[]>([]);
   const [person, setPerson] = useState<Person | null>(null);
   const [counter, setCounter] = useState<number>(1);
   const [showForm, setShowForm] = useState<boolean>(false);
@@ -29,10 +29,15 @@ const App: FC = () => {
       birth_year: data.birth_year,
       img: imgUrl,
     };
+    const personToPost: PersonToPost = {
+      name: data.name,
+      vehicles: data.vehicles,
+      created: data.created,
+    };
     setPerson(person);
-    setPeople((prevState) => {
+    setPeopleToPost((prevState) => {
       console.log(prevState);
-      return [...prevState, person];
+      return [...prevState, personToPost];
     });
   };
 
@@ -42,8 +47,8 @@ const App: FC = () => {
 
   useEffect(() => {
     console.log(person);
-    console.log(people);
-  }, [person, people]);
+    console.log(peopleToPost);
+  }, [person, peopleToPost]);
 
   return (
     <>
