@@ -5,21 +5,23 @@ import { Person } from "./utils/interfaces";
 const App: FC = () => {
   const [people, setPeople] = useState<Person[]>([]);
   const [person, setPerson] = useState<Person | null>(null);
-  const [imgUrl, setImgUrl] = useState<string | null>(null);
 
   const fetchData = async (n: number) => {
     const response = await fetch(`https://swapi.dev/api/people/${n}/`);
     const data = await response.json();
 
-    const person = {
+    const person: Person = {
       name: data.name,
       eye_color: data.eye_color,
       birth_year: data.birth_year,
-      url: data.url,
     };
-    console.log(person);
     setPeople([person]);
-    setPerson(person);
+    setPerson((prevState) => {
+      return {
+        ...prevState,
+        ...person,
+      };
+    });
 
     if (!response.ok) {
       const msg = `An error occurred: ${response.status}`;
@@ -29,8 +31,13 @@ const App: FC = () => {
   const fetchImg = async () => {
     const response = await fetch("https://picsum.photos/534/383");
     const url: string = response.url;
-    setImgUrl(url);
-    console.log(response)
+
+    setPerson((prevState) => {
+      return {
+        ...prevState,
+        img: url,
+      };
+    });
 
     if (!response.ok) {
       const msg = `An error occurred: ${response.status}`;
@@ -43,23 +50,15 @@ const App: FC = () => {
   }, []);
 
   useEffect(() => {
-    console.log(people);
-    console.log(imgUrl);
-  }, [people, imgUrl]);
+    console.log(person);
+  }, [person]);
 
   return (
     <div className="App">
-      {/* {people.map(person => (
-      <section key={person.url}>
-        <h1>{person.name}</h1>
-        <p>age: {person.birth_year}</p>
-        <p>eye color: {person.eye_color}</p>
-      </section>
-     ))} */}
       <section>
-        {imgUrl && <img src={imgUrl} />}
-        {person ? (
+        {person?.img && person?.name ? (
           <>
+            <img src={person.img} />
             <h1>{person.name}</h1>
             <p>age: {person.birth_year}</p>
             <p>eye color: {person.eye_color}</p>
@@ -68,6 +67,7 @@ const App: FC = () => {
           <h1>Loading...</h1>
         )}
       </section>
+      <button>Next profiles</button>
     </div>
   );
 };
