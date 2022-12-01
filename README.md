@@ -1,46 +1,31 @@
-# Getting Started with Create React App
+# React app with typescript
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project is a solution for recruitment task.
 
-## Available Scripts
+## Task description
 
-In the project directory, you can run:
+The goal of this task was to create an application, which displays data fetched from [API endpoint](https://swapi.dev/). The UI was provided [here](https://www.figma.com/file/woqB48WOrmMytlS6MlkSWA/Untitled?nodeid=
+0%3A1&t=5JYNYeuz7u1WfY5q-1). 
 
-### `npm start`
+Random pictures should have been fetched from [picsum endpoint](https://.picsum.photos/534/383). 
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+A form should have been implemented with a basic error handling.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## How it works
 
-### `npm test`
+When "next profile" button is clicked the application fetches next sort of data.
+Form data and all the people displayed when "next profile" are clicked are posted to fake database (https://example/).
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Tech stack
 
-### `npm run build`
+[Create React App](https://github.com/facebook/create-react-app)
+[React](https://reactjs.org/)
+[TypeScript](https://www.typescriptlang.org/docs/handbook/react.html)
+[REST API](https://swapi.dev/)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Installation
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+In the project directory:
+1. Install all dependencies by running npm install.
+2. Run the app in the development mode with the command npm start.
+3. Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
