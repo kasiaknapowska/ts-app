@@ -21,7 +21,7 @@ Form data and all the people displayed when "next profile" are clicked are poste
 [Create React App](https://github.com/facebook/create-react-app) |
 [React](https://reactjs.org/) |
 [TypeScript](https://www.typescriptlang.org/docs/handbook/react.html) |
-[REST API](https://swapi.dev/)
+[REST API](https://swapi.dev/) |
 [React Hooks](https://reactjs.org/docs/hooks-intro.html)
 
 ## Installation
