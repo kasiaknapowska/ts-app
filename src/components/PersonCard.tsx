@@ -13,12 +13,12 @@ export const PersonCard: FC = () => {
     <>
       {!isLoading && person ? (
         <div className="person_card">
-          <img className="person_img" src={person.img} />
+          <img className="person_img" src={person.img} alt="person"/>
           <div className="person_header">
             <h1>{person.name}</h1>
             <div>
-              <img src={personIcon} />
-              <img src={checkIcon} />
+              <img src={personIcon} alt="icon"/>
+              <img src={checkIcon} alt="icon"/>
             </div>
           </div>
           <div className="person_data">
