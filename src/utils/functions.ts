@@ -11,7 +11,7 @@
 //         .catch((err) => console.log(err));
 // }
 
-import { Person } from "./interfaces";
+import { PersonI } from "./interfaces";
 
 export async function request<TResponse>(
   url: string,
@@ -23,6 +23,6 @@ export async function request<TResponse>(
 }
 
 export const fetchData = (n: number) =>
-  request<Person>(`https://swapi.dev/api/people/${n}/`).then((data) => {
+  request<PersonI>(`https://swapi.dev/api/people/${n}/`).then((data) => {
     console.log(data);
   });

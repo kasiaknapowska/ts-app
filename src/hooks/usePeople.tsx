@@ -1,11 +1,9 @@
-import React, {useState} from 'react'
-import { PeopleContext, Person, PersonToPost } from '../utils/interfaces';
+import { useState } from "react";
+import { PeopleHookI, PersonI, PersonToPostI } from "../utils/interfaces";
 
-
-function usePeople(): PeopleContext {
-
-  const [peopleToPost, setPeopleToPost] = useState<PersonToPost[]>([]);
-  const [person, setPerson] = useState<Person | null>(null);
+function usePeople(): PeopleHookI {
+  const [peopleToPost, setPeopleToPost] = useState<PersonToPostI[]>([]);
+  const [person, setPerson] = useState<PersonI | null>(null);
 
   const fetchData = async (n: number) => {
     const response = await fetch(`https://swapi.py4e.com/api/people/${n}/`);
@@ -19,25 +17,24 @@ function usePeople(): PeopleContext {
       throw new Error(msg);
     }
 
-    const person: Person = {
+    const person: PersonI = {
       name: data.name,
       eye_color: data.eye_color,
       birth_year: data.birth_year,
       img: imgUrl,
     };
-    const personToPost: PersonToPost = {
+    const personToPost: PersonToPostI = {
       name: data.name,
       vehicles: data.vehicles,
       created: data.created,
     };
     setPerson(person);
     setPeopleToPost((prevState) => {
-      // console.log(prevState);
       return [...prevState, personToPost];
     });
   };
 
-  return {person, peopleToPost, fetchData}
+  return { person, peopleToPost, fetchData };
 }
 
 export default usePeople;
