@@ -8,6 +8,7 @@ import checkIcon from "../assets/check-icon.svg";
 
 export const PersonCard: FC = () => {
   const { person } = useContext<PeopleContextI>(PeopleContext);
+ 
   return (
     <>
       {person ? (
