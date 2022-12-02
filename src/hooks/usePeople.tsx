@@ -4,16 +4,19 @@ import { PeopleHookI, PersonI, PersonToPostI } from "../utils/interfaces";
 function usePeople(): PeopleHookI {
   const [peopleToPost, setPeopleToPost] = useState<PersonToPostI[]>([]);
   const [person, setPerson] = useState<PersonI | null>(null);
+  const [isLoading, setIsLoading] = useState(true);
+
 
   const fetchData = async (n: number) => {
+    setIsLoading(true);
     const response = await fetch(`https://swapi.py4e.com/api/people/${n}/`);
     const data = await response.json();
 
     const responseImg = await fetch("https://picsum.photos/534/383");
-    const imgUrl: string = responseImg.url;
+    const imgUrl = responseImg.url;
 
     if (!response.ok || !responseImg.ok) {
-      const msg: string = `An error occurred: ${response.status} || ${responseImg.status}`;
+      const msg = `An error occurred: ${response.status} || ${responseImg.status}`;
       throw new Error(msg);
     }
 
@@ -28,13 +31,14 @@ function usePeople(): PeopleHookI {
       vehicles: data.vehicles,
       created: data.created,
     };
+    setIsLoading(false);
     setPerson(person);
     setPeopleToPost((prevState) => {
       return [...prevState, personToPost];
     });
   };
 
-  return { person, peopleToPost, fetchData };
+  return { person, peopleToPost, isLoading, fetchData };
 }
 
 export default usePeople;

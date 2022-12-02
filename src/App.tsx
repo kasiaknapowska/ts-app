@@ -9,10 +9,11 @@ import "./App.css";
 export const PeopleContext = createContext<PeopleContextI>({
   person: null,
   peopleToPost: [],
+  isLoading: true,
 });
 
 const App: FC = () => {
-  const { person, peopleToPost, fetchData } = usePeople();
+  const { person, peopleToPost, isLoading, fetchData } = usePeople();
   const [counter, setCounter] = useState(1);
   const [showForm, setShowForm] = useState(false);
 
@@ -26,7 +27,7 @@ const App: FC = () => {
   // }, [person, peopleToPost]);
 
   return (
-    <PeopleContext.Provider value={{ person, peopleToPost }}>
+    <PeopleContext.Provider value={{ person, peopleToPost, isLoading }}>
       <section className="container">
         {!showForm ? (
           <Person setShowForm={setShowForm} setCounter={setCounter} />

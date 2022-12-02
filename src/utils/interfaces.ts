@@ -14,6 +14,7 @@ export interface PersonI {
   export interface PeopleHookI {
     person: PersonI | null,
     peopleToPost: PersonToPostI[],
+    isLoading: boolean,
     fetchData: (n: number) => void,
   }
 
@@ -32,4 +33,5 @@ export interface PersonI {
 export interface PeopleContextI {
   person: PersonI | null,
   peopleToPost: PersonToPostI[],
+  isLoading: boolean,
 }

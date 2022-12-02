@@ -7,11 +7,11 @@ import checkIcon from "../assets/check-icon.svg";
 
 
 export const PersonCard: FC = () => {
-  const { person } = useContext<PeopleContextI>(PeopleContext);
+  const { person, isLoading } = useContext<PeopleContextI>(PeopleContext);
  
   return (
     <>
-      {person ? (
+      {!isLoading && person ? (
         <div className="person_card">
           <img className="person_img" src={person.img} />
           <div className="person_header">
