@@ -1,6 +1,6 @@
 import { FC, useContext } from "react";
 import { PeopleContext } from "../App";
-import { PeopleContextI } from "../utils/interfaces";
+import { PeopleContextI } from "../utils/types";
 import "../App.css";
 import personIcon from "../assets/person-icon.svg";
 import checkIcon from "../assets/check-icon.svg";

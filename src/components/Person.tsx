@@ -1,6 +1,6 @@
 import { FC } from "react";
 import { PersonCard } from "./PersonCard";
-import { PersonPropsI } from "../utils/interfaces";
+import { PersonPropsI } from "../utils/types";
 
 
 export const Person: FC<PersonPropsI> = ({

@@ -1,7 +1,7 @@
 import { useState, useContext, ChangeEvent, SyntheticEvent } from "react";
 import { PeopleContext } from "../App";
-import { FormDataI, PeopleContextI } from "../utils/interfaces";
-
+import { request } from "../utils/functions";
+import { FormDataI, PeopleContextI } from "../utils/types";
 
 enum FormError {
   email = "Nieprawidłowy format adresu email",
@@ -77,21 +77,15 @@ export default function Form() {
     } else {
       console.log(formData);
 
-      fetch("https://example/", {
+      const data = await request<FormDataI>(`https://example/`, {
         method: "POST",
         body: JSON.stringify(formData),
         headers: {
           "Content-Type": "application/json",
         },
-      })
-        .then((r) => r.json())
-        .then((data) => {
-          console.log(data);
-          setSuccessMessage("Formularz wysłany pomyślnie");
-        })
-        .catch((err) => {
-          console.log(err);
-        });
+      });
+
+      setSuccessMessage("Formularz wysłany pomyślnie");
     }
   };
 

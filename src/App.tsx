@@ -2,7 +2,7 @@ import { FC, useEffect, useState, createContext } from "react";
 import Form from "./components/Form";
 import { Person } from "./components/Person";
 import usePeople from "./hooks/usePeople";
-import { PeopleContextI } from "./utils/interfaces";
+import { PeopleContextI } from "./utils/types";
 import "./App.css";
 
 
