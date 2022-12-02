@@ -4,7 +4,7 @@ This project is a solution for recruitment task.
 
 ## Task description
 
-The goal of this task was to create an application, which displays data fetched from [API endpoint](https://swapi.dev/). The UI was provided [here](https://www.figma.com/file/woqB48WOrmMytlS6MlkSWA/Untitled?nodeid=
+The goal of this task was to create an application, which displays data fetched from [API endpoint](https://swapi.py4e.com/). The UI was provided [here](https://www.figma.com/file/woqB48WOrmMytlS6MlkSWA/Untitled?nodeid=
 0%3A1&t=5JYNYeuz7u1WfY5q-1). 
 
 Random pictures should have been fetched from [picsum endpoint](https://picsum.photos/534/383). 

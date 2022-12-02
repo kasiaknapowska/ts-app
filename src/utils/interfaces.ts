@@ -1,3 +1,5 @@
+import {Dispatch, SetStateAction} from 'react'
+
 export interface Person {
     name: string,
     eye_color: string,
@@ -8,6 +10,11 @@ export interface Person {
     name: string,
     vehicles: string[],
     created: string,
+  }
+  export interface PeopleContext {
+    person: Person | null,
+    peopleToPost: PersonToPost[],
+    fetchData: (n: number) => void,
   }
   export interface PersonCardProps {
     name: string,
@@ -22,3 +29,12 @@ export interface Person {
     phone: number | string,
     checkbox: boolean | string,
   }
+  export interface PersonComponentProps{
+    setShowForm: Dispatch<SetStateAction<boolean>>,
+    setCounter: Dispatch<SetStateAction<number>>,
+}
+export interface PeopleContextData {
+  person: Person | null,
+  peopleToPost: PersonToPost[],
+  fetchData: (n: number) => void,
+}
