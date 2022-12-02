@@ -89,7 +89,7 @@ p {
 .person_header img {
   max-height: 35px;
   max-width: 30px;
-  margin: 10px 0;
+  margin: 20px 0 0 0;
 }
 .person_header > div {
   display: flex;
@@ -123,7 +123,6 @@ input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
   display: none;
 }
-
 
 .form_container {
   padding: 50px 0 0 0;
@@ -200,6 +199,7 @@ input::-webkit-inner-spin-button {
   text-align: center;
   margin-top: 20px;
 }
+
 /* BREAKPOINTS */
 
 @media screen and (min-width: 400px) {

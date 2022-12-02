@@ -1,5 +1,7 @@
-import React, { useState } from "react";
-import { FormData } from "../utils/interfaces";
+import { useState, useContext, ChangeEvent, SyntheticEvent } from "react";
+import { PeopleContext } from "../App";
+import { FormDataI, PeopleContextI } from "../utils/interfaces";
+
 
 enum FormError {
   email = "Nieprawidłowy format adresu email",
@@ -8,17 +10,19 @@ enum FormError {
 }
 
 export default function Form() {
+  const { peopleToPost } = useContext<PeopleContextI>(PeopleContext);
   const [errors, setErrors] = useState<string[]>([]);
-  const [formData, setFormData] = useState<FormData>({
+  const [formData, setFormData] = useState<FormDataI>({
     login: "",
     password: "",
     email: "",
     phone: "",
     checkbox: false,
+    star_wars_data: peopleToPost,
   });
   const [successMessage, setSuccessMessage] = useState<string | null>(null);
 
-  const onInputChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
+  const onInputChange = (e: ChangeEvent<HTMLInputElement>): void => {
     const { name, value } = e.target;
 
     setFormData((prevFormData) => {
@@ -40,7 +44,7 @@ export default function Form() {
     }
   };
 
-  const onCheckboxChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
+  const onCheckboxChange = (e: ChangeEvent<HTMLInputElement>): void => {
     setFormData((prevFormData) => {
       return {
         ...prevFormData,
@@ -52,7 +56,7 @@ export default function Form() {
     });
   };
 
-  const onSubmit = async (e: React.SyntheticEvent) => {
+  const onSubmit = async (e: SyntheticEvent) => {
     e.preventDefault();
 
     setErrors([]);
