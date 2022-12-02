@@ -12,7 +12,7 @@ const App: FC = () => {
 
 
   const fetchData = async (n: number) => {
-    const response = await fetch(`https://swapi.dev/api/people/${n}/`);
+    const response = await fetch(`https://swapi.py4e.com/api/people/${n}/`);
     const data = await response.json();
 
     const responseImg = await fetch("https://picsum.photos/534/383");
